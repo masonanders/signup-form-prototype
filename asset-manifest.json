@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/signup-form-prototype/static/css/main.bbc5a30a.css",
+    "main.js": "/signup-form-prototype/static/js/main.323e548c.js",
+    "index.html": "/signup-form-prototype/index.html",
+    "main.bbc5a30a.css.map": "/signup-form-prototype/static/css/main.bbc5a30a.css.map",
+    "main.323e548c.js.map": "/signup-form-prototype/static/js/main.323e548c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bbc5a30a.css",
+    "static/js/main.323e548c.js"
+  ]
+}

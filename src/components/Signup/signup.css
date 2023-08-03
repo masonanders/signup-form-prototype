@@ -11,12 +11,16 @@ h1 {
 }
 
 input {
+  font-size: 1rem;
   padding: 8px 12px;
 }
 
 input[type=checkbox] {
   border-radius: 4px;
   cursor: pointer;
+  height: 16px;
+  margin: 0;
+  width: 16px;
 }
 
 input[error=true] {
@@ -26,7 +30,7 @@ input[error=true] {
 
 .checkboxWithLabel {
   align-items: center;
-  column-gap: 4px;
+  column-gap: 8px;
   display: flex;
 }
 

@@ -23,7 +23,6 @@ export default function Signup({ onSignup }) {
   return (
     <div id="signup">
       <h1>Sign up</h1>
-
       <input
         type="text"
         id="username"
@@ -31,6 +30,7 @@ export default function Signup({ onSignup }) {
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         error={String(error && !username)}
+        autoComplete="username"
       />
 
       <input
@@ -40,6 +40,7 @@ export default function Signup({ onSignup }) {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         error={String(error && (!password || password !== confPass))}
+        autoComplete="new-password"
       />
 
       <input
@@ -49,6 +50,7 @@ export default function Signup({ onSignup }) {
         value={confPass}
         onChange={(e) => setConfPass(e.target.value)}
         error={String(error && (!confPass || password !== confPass))}
+        autoComplete="new-password"
       />
 
       <span className="checkboxWithLabel">
@@ -61,7 +63,7 @@ export default function Signup({ onSignup }) {
         <label htmlFor="show-pass">Show Password</label>
       </span>
 
-      {error && (
+      {error && !fieldsAreValid() && (
         <div className="error-messages">
           {!username && <p>Username is required</p>}
           {!(password || confPass) && <p>Password is required</p>}
@@ -72,7 +74,6 @@ export default function Signup({ onSignup }) {
       <button disabled={error && !fieldsAreValid()} onClick={submit}>
         Sign up
       </button>
-
     </div>
   );
 }

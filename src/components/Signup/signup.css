@@ -1,4 +1,36 @@
-.signup-form {
+#signup {
   display: flex;
   flex-direction: column;
+  row-gap: 24px;
+}
+
+h1 {
+  margin-bottom: 16px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input {
+  padding: 8px 12px;
+}
+
+input[type=checkbox] {
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[error=true] {
+  border-color: red;
+  border-radius: 4px;
+}
+
+.checkboxWithLabel {
+  align-items: center;
+  column-gap: 4px;
+  display: flex;
+}
+
+.error-messages {
+  color: red;
+  font-size: small;
 }

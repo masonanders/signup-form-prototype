@@ -21,7 +21,7 @@ export default function Signup({ onSignup }) {
   }
 
   return (
-    <div className="signup-form">
+    <div id="signup">
       <h1>Sign up</h1>
 
       <input
@@ -31,7 +31,7 @@ export default function Signup({ onSignup }) {
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         error={String(error && !username)}
-        />
+      />
 
       <input
         type={showPass ? "text" : "password"}
@@ -40,7 +40,7 @@ export default function Signup({ onSignup }) {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         error={String(error && (!password || password !== confPass))}
-        />
+      />
 
       <input
         type={showPass ? "text" : "password"}
@@ -51,25 +51,28 @@ export default function Signup({ onSignup }) {
         error={String(error && (!confPass || password !== confPass))}
       />
 
-      <label htmlFor="show-pass">Show Password</label>
-      <input
-        type="checkbox"
-        id="show-pass"
-        checked={showPass}
-        onChange={(e) => setShowPass(e.target.checked)}
-      />
-
-      <button disabled={error && !fieldsAreValid()} onClick={submit}>
-        Sign up
-      </button>
+      <span className="checkboxWithLabel">
+        <input
+          type="checkbox"
+          id="show-pass"
+          checked={showPass}
+          onChange={(e) => setShowPass(e.target.checked)}
+        />
+        <label htmlFor="show-pass">Show Password</label>
+      </span>
 
       {error && (
-        <div>
+        <div className="error-messages">
           {!username && <p>Username is required</p>}
           {!(password || confPass) && <p>Password is required</p>}
           {password !== confPass && <p>Passwords must match</p>}
         </div>
       )}
+
+      <button disabled={error && !fieldsAreValid()} onClick={submit}>
+        Sign up
+      </button>
+
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import "./signup.css"
 
-export default function Signup() {
+export default function Signup({ onSignup }) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [confPass, setConfPass] = useState('')
@@ -14,7 +14,7 @@ export default function Signup() {
 
     function submit() {
         if (fieldsAreValid()) {
-            // Handle successful sign up
+            onSignup(username)
         } else {
             setError(true)
         }

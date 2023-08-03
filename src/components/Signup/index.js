@@ -30,7 +30,7 @@ export default function Signup({ onSignup }) {
         placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
-        error={String(error && !!username)}
+        error={String(error && !username)}
         />
 
       <input
@@ -39,7 +39,7 @@ export default function Signup({ onSignup }) {
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        error={String(error && (!!password || password !== confPass))}
+        error={String(error && (!password || password !== confPass))}
         />
 
       <input
@@ -48,7 +48,7 @@ export default function Signup({ onSignup }) {
         placeholder="Confirm Password"
         value={confPass}
         onChange={(e) => setConfPass(e.target.value)}
-        error={String(error && (!!confPass || password !== confPass))}
+        error={String(error && (!confPass || password !== confPass))}
       />
 
       <label htmlFor="show-pass">Show Password</label>

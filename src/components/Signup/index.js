@@ -24,28 +24,28 @@ export default function Signup({ onSignup }) {
     <div className="signup-form">
       <h1>Sign up</h1>
 
-      <label htmlFor="username">Username</label>
       <input
         type="text"
         id="username"
+        placeholder="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         error={String(error && !!username)}
-      />
+        />
 
-      <label htmlFor="pass">Password</label>
       <input
         type={showPass ? "text" : "password"}
         id="pass"
+        placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         error={String(error && (!!password || password !== confPass))}
-      />
+        />
 
-      <label htmlFor="conf-pass">Confirm Password</label>
       <input
         type={showPass ? "text" : "password"}
         id="conf-pass"
+        placeholder="Confirm Password"
         value={confPass}
         onChange={(e) => setConfPass(e.target.value)}
         error={String(error && (!!confPass || password !== confPass))}

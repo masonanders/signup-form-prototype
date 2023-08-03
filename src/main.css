@@ -17,6 +17,15 @@
   width: 320px;
 }
 
+#socials {
+  top: 0;
+  column-gap: 4px;
+  display: flex;
+  padding: 8px 12px;
+  position: absolute;
+  right: 0;
+}
+
 button {
   font-weight: bold;
   margin-left: auto;

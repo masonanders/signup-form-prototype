@@ -9,6 +9,8 @@ export default function Signup() {
 
     return (
         <div className="signup-form">
+            <h1>Sign up</h1>
+
             <label htmlFor="username">Username</label>
             <input type="text" id="username" value={username} onChange={e => setUsername(e.target.value)} />
             

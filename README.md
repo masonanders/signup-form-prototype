@@ -2,7 +2,7 @@
 
 [See the form live!](https://masonanders.github.io/signup-form-prototype/)
 
-This is a prototype `Sign up` form built using React. This project was part of a coding challenge and is meant to showcase my abilities in using React as a Frontend Engineer.
+This is a prototype `Sign up` form built using React and JavaScript. This project was part of a coding challenge and is meant to showcase my abilities in using React and JavaScript as a Frontend Engineer.
 
 ## Form Requirements
 

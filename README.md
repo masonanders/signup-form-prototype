@@ -1,70 +1,39 @@
-# Getting Started with Create React App
+# Signup Form Prototype
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[See the form live!](https://masonanders.github.io/signup-form-prototype/)
 
-## Available Scripts
+This is a prototype `Sign up` form built using React. This project was part of a coding challenge and is meant to showcase my abilities in using React as a Frontend Engineer.
 
-In the project directory, you can run:
+## Form Requirements
 
-### `npm start`
+The form must contain three inputs:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Username
+- Password
+- Confirm Password
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Each field must persist its own state as the form is filled out. All fields are required with no other restrictions on content. `Password` and `Confirm Password` must match in order to submit the form and the user should be alerted if they don't.
 
-### `npm test`
+## User Experience Design
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I wanted to ensure users are not met with any errors before they have made an attempt to correctly fill out the form. So the form starts in a non-error state until the user has clicked the `submit` button. Once submitted, all inputs are validated and if they are incorrect the form is then put into an error state which disables the `Sign up` button and highlights the invalid input fields and surfaces a message that provides details on the error(s) until they are corrected.
 
-### `npm run build`
+![Error example](./docs/images/username-error-example.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+I also wanted to ensure users were able to view both password inputs to easily compare them should the two inputs not match. So I added a `Show Password` checkbox which toggles each `password` input to a `text` input, revealing the password(s) in plain text.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Show Password Example](./docs/images/show-password-example.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Finally, I wanted to add a welcome view once the user has successfully signed up to complete the experience. The username provided in the `Sign up` form is passed on to this view to add some personalization. However, since there is no further functionality intended for this project, I left a message saying as much as well as a button to return user to the `Sign up` form in its initial state.
 
-### `npm run eject`
+![Welcome view](./docs/images/welcome-view.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Implementation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+I used the fairly standard way of initializing a React app, [`Create React App`](https://create-react-app.dev/) to set up my development environment. I removed a bunch of files that come with CRA initialization that were unnecessary for this scope of project and added a `reset.css` file (courtesy of [meyerweb.com](https://meyerweb.com/eric/tools/css/reset/)).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Since this project only consists of a single form and welcome view I opted not to use any routing and structured the root component, `App.js`, to render only the small box which acts as the container for the form and welcome view (I later added social links as a sibling to this box).
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+For the form inputs, I took the approach of using state tracked by React hooks over using the input DOM element API since I tend to find it more flexible and familiar. This makes it easy and concise to validate the fields using JavaScript within the React component.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Once the form is successfully submitted, I pass the `username` back to `App.ts` which stores the value within its own state and switches the `Sign up` form for the `Welcome` view, passing the `username` along to it. When the `Go back to sign up` button is clicked, it triggers `App.ts` to delete the stored `username`, which causes it to switch back to rendering the `Sign up` form component and the whole process is repeated.
